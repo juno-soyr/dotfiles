@@ -40,8 +40,9 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
 (after! org
+  (setq org-directory "~/org/")
+
   (setq org-default-notes-file (concat org-directory "/notes.org"))
 
   (setq org-agenda-custom-commands
@@ -60,14 +61,42 @@
             ))
 
         )
-)
+   )
   (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "STARTED(s)" "|" "DONE(d)" "|" "Cancelled(c)")))
+  (setq org-roam-directory "~/org")
+  (setq org-roam-db-autosync-mode t)
+  (use-package! org-fragtog
+    :custom
+    (org-startup-with-latex-preview t)
+    :hook
+    (org-mode . org-fragtog-mode)
+    :custom
+    (org-format-latex-options
+     (plist-put org-format-latex-options :scale 5)
+     (plist-put org-format-latex-options :foreground 'auto)
+     (plist-put org-format-latex-options :background 'auto))
+    )
 
+  )
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t)
 )
 ;; Org alert stuff --------------
 (use-package! org-alert
-  :commands org-alert-check org-alert-enable org-alert-disable)
+  :commands org-alert-check org-alert-enable org-alert-disable org-alert-time-match-string)
 
 (after! org-alert
   (setq org-alert-interval 300
@@ -76,6 +105,11 @@
   (setq org-alert-match-string "\\(?:SCHEDULED\\|DEADLINE\\):.*<.*\\([0-9]\\{2\\}:[0-9]\\{2\\}\\).*>")
   (setq alert-default-style 'libnotify)
 )
+
+(setq-default line-spacing 3)
+(defun connect-vps ()
+  (interactive)
+  (dired "/ssh:haile@157.180.41.130#10000:/"))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
