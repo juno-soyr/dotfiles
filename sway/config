@@ -22,17 +22,21 @@ client.placeholder		 #7daea3 #7daea3 #1d2021 #7daea3   #7daea3
 blur {
 	enable
 }
+# Enable blur for swaync popups and control center
+for_window [app_id="swaync-control-center"] blur enable
+for_window [app_id="swaync-notification"] blur enable
+
 corner_radius 10
 layer_effects "waybar" {
-	shadows enable
 	corner_radius 20
-	blur enable
 }
+
+
 input "type:keyboard" {
-	xkb_layout us,es
+	xkb_layout es
 	xkb_options grp:rctrl_toggle
 }
-output * bg ~/desktop/thinkpad_wallpaper.jpg fill
+output "*" bg /home/haile/Pictures/Wallpapers/Stargazing.jpg fill
 
 ##exec_always nm-applet
 
@@ -48,17 +52,18 @@ set $down j
 set $up u
 set $right k
 set $term alacritty
-set $menu tofi-run | xargs swaymsg exec --
-set $appmenu tofi-drun | xargs swaymsg exec --
+set $menu rofi -show run
+set $appmenu rofi -show drun
 # common bindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $appmenu
 bindsym $mod+Shift+Space exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+l exec swaylock -i ~/desktop/thinkpad_wallpaper.jpg
+bindsym $mod+Shift+l exec swaylock -i ~/Pictures/Wallpapers/Stargazing.jpg
 bindsym $mod+Shift+e exec ~/.config/waybar/scripts/power-menu.sh
 bindsym $mod+p       exec grimshot save active
+bindsym $mod+Shift+z exec swaync-client -t
 floating_modifier $mod normal
 
 # more bindings
@@ -138,6 +143,7 @@ include /etc/sway/config.d/*
 # input <mouse device id> {
 # 	accel_profile flat
 # }
+exec_always swaync
 
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position 900 500, sticky enable
 

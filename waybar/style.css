@@ -14,16 +14,16 @@ window#waybar {
 }
 /*-----module groups----*/
 .modules-right {
-	background-color: rgba(0,43,51,0.85);
+	background-color: rgba(63, 12, 23, 0.85);
     margin: 2px 10px 0 0;
 }
 .modules-center {
-	background-color: rgba(0,43,51,0.85);
+	background-color: rgba(105, 13, 26, 0.85);
     margin: 2px 0 0 0;
 }
 .modules-left {
     margin: 2px 0 0 5px;
-	background-color: rgba(0,119,179,0.6);
+	background-color: rgba(175, 3, 3, 0.6);
 }
 /*-----modules indv----*/
 #workspaces button {
@@ -51,7 +51,8 @@ window#waybar {
 #mode,
 #custom-power,
 #custom-menu,
-#idle_inhibitor {
+#idle_inhibitor
+#custom-notifications {
     padding: 0 10px;
 }
 #mode {
@@ -59,10 +60,17 @@ window#waybar {
     font-weight: bold;
 }
 #custom-power {
-    background-color: rgba(0,119,179,0.6);
+    background-color: rgba(226, 52, 89, 0.6);
     border-radius: 100px;
     margin: 5px 5px;
     padding: 1px 1px 1px 6px;
+}
+#custom-notifications {
+    background-color: rgba(226, 52, 89, 0.6);
+    border-radius: 100px;
+    margin: 5px 5px;
+    padding: 1px 1px 1px 6px;
+
 }
 /*-----Indicators----*/
 #idle_inhibitor.activated {

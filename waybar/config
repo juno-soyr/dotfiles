@@ -1,6 +1,6 @@
 {
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock", "idle_inhibitor"],
+    "modules-center": ["clock", "idle_inhibitor", "custom/notifications"],
     "modules-right": ["tray", "custom/power"],
 
     "sway/mode": {
@@ -48,5 +48,9 @@
 	"custom/power": {
 		"format": " ",
 		"on-click": "wlogout"
-	}
+	},
+    "custom/notifications": {
+        "format":"󰵚 ",
+        "on-click": "swaync-client -t"
+    }
 }
