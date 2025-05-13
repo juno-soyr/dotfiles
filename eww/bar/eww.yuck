@@ -1,0 +1,46 @@
+(defpoll time :interval "10s"
+  "date '+%H:%M'")
+
+(defwidget dateTime []
+    time
+)
+(defwidget rightToolbar []
+    (box :class "rightToolbar" :orientation "h" :space-evenly false :halign "end"
+     "test"
+    )
+
+)
+(defwidget centerToolbar []
+    (box :class "centerToolbar" :orientation "h" :space-evenly false :halign "center"
+    (dateTime)
+    )
+)
+
+(deflisten workspaces :initial '{"DP-2": [], "HDMI-A-1": [], "eDP-1": []}' "./swayspaces.py")
+
+(defwidget workspaces [monitor]
+  (box :orientation "h" :class "workspaces" :halign "start"
+    (for wsp in {workspaces[monitor]}
+      (button :class "workspace ${wsp.class}"
+              :onclick "swaymsg workspace ${wsp.name}"
+        (box
+          (label :class "name" :text "${wsp.name}"))))))
+
+(defwidget bar []
+    (centerbox :orientation "h"
+        (workspaces :monitor "eDP-1")
+        (centerToolbar)
+        (rightToolbar)
+    )
+)
+
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "99%"
+                        :height "10px"
+                        :anchor "top center")
+    :reserve (struts :side "top" :distance "4%")
+    (bar))
