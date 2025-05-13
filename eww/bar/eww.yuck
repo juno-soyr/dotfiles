@@ -8,6 +8,7 @@
     (rightToolbar)))
 
 ;; ---------------------- Right Toolbar ------------------------
+
 (defwidget power []
   (button :class "power" :halign "end" :onclick "wlogout" :timeout "10000ms"
     (label :text "  " :class "icon")
@@ -16,7 +17,8 @@
 
 (defwidget rightToolbar []
     (box :class "rightToolbar" :halign "end"
-     (power)
+    (systray :spacing 10)
+    (power)
     )
 )
 
@@ -69,4 +71,4 @@
   :reserve (struts :side "top" :distance "4%")
   :stacking "fg"
   :exclusive "true"
-  (bar :monitor "HDMI-A-1"))
+  (workspaces :monitor "HDMI-A-1"))

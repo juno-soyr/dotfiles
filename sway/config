@@ -39,8 +39,7 @@ input "type:keyboard" {
 output "*" bg /home/haile/Pictures/Wallpapers/Stargazing.jpg fill
 
 ##exec_always nm-applet
-exec_always ~/.local/bin/eww open bar-1 --config ~/.config/eww/bar	
-exec_always ~/.local/bin/eww open bar-2 --config ~/.config/eww/bar
+exec_always ~/.local/bin/eww open bar-1 bar-2 --config ~/.config/eww/bar	
 
 # variables
 set $mod Mod4
@@ -49,8 +48,7 @@ set $down j
 set $up u
 set $right k
 set $term alacritty
-set $menu rofi -show run
-set $appmenu rofi -show drun
+set $appmenu ~/.config/rofi/launchers/type-1/launcher.sh
 # common bindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $appmenu
@@ -58,7 +56,7 @@ bindsym $mod+Shift+Space exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+l exec swaylock -i ~/Pictures/Wallpapers/Stargazing.jpg
-bindsym $mod+Shift+e exec ~/.config/waybar/scripts/power-menu.sh
+bindsym $mod+Shift+e exec wlogout
 bindsym $mod+p       exec grimshot save active
 bindsym $mod+Shift+z exec swaync-client -t
 floating_modifier $mod normal

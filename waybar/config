@@ -1,17 +1,14 @@
 {
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces"],
     "modules-center": ["clock", "idle_inhibitor", "custom/notifications"],
     "modules-right": ["tray", "custom/power"],
 
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname} ",
         "format-disconnected": "", 
         "max-length": 50,
-        "on-click": "kitty -e 'nmtui'"
+        "on-click": "alacritty -e 'nmtui'"
     },
     "idle_inhibitor": {
         "format": "{icon}",
