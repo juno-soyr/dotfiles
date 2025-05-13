@@ -39,11 +39,8 @@ input "type:keyboard" {
 output "*" bg /home/haile/Pictures/Wallpapers/Stargazing.jpg fill
 
 ##exec_always nm-applet
-
-bar {
-	swaybar_command waybar
-}
-
+exec_always ~/.local/bin/eww open bar-1 --config ~/.config/eww/bar	
+exec_always ~/.local/bin/eww open bar-2 --config ~/.config/eww/bar
 
 # variables
 set $mod Mod4

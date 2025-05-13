@@ -1,42 +1,69 @@
 
-.bar {
-    background-color: transparent;
+.bar-1 {
+  background-color: transparent;
+}
+.bar-2 {
+  background-color: transparent;
 }
 .workspaces {
-    background-color: black; // background for the whole bar
+  background-color: black; // background for the whole bar
+  border-radius: 9999px;
+  padding: 5px;
+
+  button.workspace {
+    background-color: black;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    box-shadow: none;
+    border-radius: 20px;
+    // Hover style
+    &:hover {
+      background-color: #506e92;
+    }
+
+    &.focused {
+      background-color: #5e81ac;
+    }
+  }
+}
+.centerToolbar {
+  background-color: black;
+  border-radius: 9999px;
+  padding: 5px;
+  .time {
+    background-color: #506e92;
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin-right: 5px;
+  }
+  .notifications {
+    background-color: #506e92;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    .icon {
+      font-size: 20px;
+      margin-right: 3px;
+    }
+    &:hover {
+      background-color: #8ab3e5;
+    }
+  }
+}
+  .rightToolbar {
+    background-color: black;
     border-radius: 9999px;
-    padding: 3px;
-  
-    button.workspace {
-      background-color: black;
-      color: white;
-      padding: 6px 12px;
-      border: none;
-      box-shadow: none;
-      border-radius: 0; // default, overridden for first/last
-  
-      // Make the first and last buttons rounded to form a pill shape
-      &:first-child {
-        border-top-left-radius: 9999px;
-        border-bottom-left-radius: 9999px;
+    padding: 5px;
+    .power {
+      background-color: #506e92;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+      .icon {
+        font-size: 20px;
+        margin-left: 5px;
       }
-  
-      &:last-child {
-        border-top-right-radius: 9999px;
-        border-bottom-right-radius: 9999px;
-      }
-  
-      // Hover style
       &:hover {
-        background-color: #506e92;
-        color: white;
-      }
-  
-      &.focused {
-        background-color: #5e81ac;
-        color: white;
-        border-radius: 20px;
+        background-color: #8ab3e5;
       }
     }
   }
-  

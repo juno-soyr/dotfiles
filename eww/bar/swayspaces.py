@@ -18,7 +18,6 @@ def generate_workspace_data() -> dict:
         data[wsp["output"]].append(
             {
                 "name": wsp["name"],
-                "monitor": wsp["output"],
                 "focused": wsp["focused"],
                 "visible": wsp["visible"],
                 "class": wsp_class  # ← added class field here
