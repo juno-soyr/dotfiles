@@ -5,7 +5,9 @@
   (centerbox :orientation "h"
     (workspaces :monitor monitor)
     (centerToolbar)
-    (rightToolbar)))
+    (rightToolbar)
+  )
+)
 
 ;; ---------------------- Right Toolbar ------------------------
 
@@ -26,10 +28,11 @@
 (defpoll time :interval "10s"
   "date '+%H:%M'"
 )
+
 (defwidget clock []
-  (box :class "time" :halign "start"
+    (box :class "time" :halign "start" 
     time
-  )
+    )
 )
 
 (defwidget notifications [] 
@@ -41,7 +44,7 @@
   (box :class "centerToolbar" :orientation "h" :space-evenly false :halign "center"
     (clock)
     (notifications)
-    )
+  )
 )
 ;; ------------------------ Worskapces --------------------------
 (deflisten workspaces :initial '{"HDMI-A-2": [], "HDMI-A-1": []}' "./swayspaces.py")
