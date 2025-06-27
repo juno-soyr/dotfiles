@@ -49,10 +49,11 @@
 (defpoll time :interval "10s"
   "date '+%H:%M'"
 )
+
 (defwidget clock []
-  (box :class "time" :halign "start"
+    (box :class "time" :halign "start" 
     time
-  )
+    )
 )
 
 (defwidget notifications [] 
@@ -64,7 +65,7 @@
   (box :class "centerToolbar" :orientation "h" :space-evenly false :halign "center"
     (clock)
     (notifications)
-    )
+  )
 )
 ;; ------------------------ Worskapces --------------------------
 (deflisten workspaces :initial '{"DP-5": [], "eDP-1": []}' "./swayspaces.py")
