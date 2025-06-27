@@ -1,4 +1,4 @@
-font pango:firacode nerd font regular 15
+font pango:gohu nerd font regular 15
 
 # output * bg #928374 solid_color
 
@@ -6,16 +6,16 @@ gaps inner 15
 gaps outer 15
 
 # these two lines removes the titlebar
-default_border pixel 2
+default_border pixel 6
 default_floating_border pixel 2
 
-# class					 border  backgr. text    indicator child_border
-client.focused           #3c3836 #7c6f64 #1d2021 #3c3836   #3c3836
-client.focused_inactive  #282828 #282828 #ddc7a1 #282828   #282828
-client.unfocused		 #282828 #282828 #ddc7a1 #282828   #282828
-client.urgent			 #d8a657 #d8a657 #1d2021 #d8a657   #d8a657
-client.placeholder		 #7daea3 #7daea3 #1d2021 #7daea3   #7daea3
-
+# class			 border  backgr. text    indicator child_border
+client.focused           #FFFFFF #6B7257 #2C282A #2C282A   #2C282A
+client.focused_inactive  #FFFFFF #2C282A #C8DAB7 #2C282A   #2C282A
+client.unfocused         #2C282A #2C282A #C8DAB7 #2C282A   #2C282A
+client.urgent            #D4B3C2 #D4B3C2 #2C282A #D4B3C2   #D4B3C2
+client.placeholder       #6B9EAA #6B9EAA #2C282A #6B9EAA   #6B9EAA
+default_dim_inactive 0.9
 ###### Configurable for SwayFX users ######
 #shadows enable
 #shadow_blur_radius 10 
@@ -33,13 +33,14 @@ layer_effects "waybar" {
 
 
 input "type:keyboard" {
-	xkb_layout es
+	xkb_layout us
 	xkb_options grp:rctrl_toggle
 }
-output "*" bg /home/haile/Pictures/Wallpapers/Stargazing.jpg fill
+output "*" bg /home/haile/Pictures/wallpaper.jpg fill
 
-##exec_always nm-applet
-exec_always ~/.local/bin/eww open bar-1 bar-2 --config ~/.config/eww/bar	
+exec_always nm-applet
+exec_always eww open bar-1 --config ~/.config/eww/bar
+exec_always eww open bar-2 --config ~/.config/eww/bar
 
 # variables
 set $mod Mod4
@@ -55,7 +56,7 @@ bindsym $mod+d exec $appmenu
 bindsym $mod+Shift+Space exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+l exec swaylock -i ~/Pictures/Wallpapers/Stargazing.jpg
+bindsym $mod+Shift+l exec swaylock -i ~/Pictures/wallpaper.jpg
 bindsym $mod+Shift+e exec wlogout
 bindsym $mod+p       exec grimshot save active
 bindsym $mod+Shift+z exec swaync-client -t

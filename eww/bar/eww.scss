@@ -50,20 +50,35 @@
     }
   }
 }
-  .rightToolbar {
-    background-color: black;
-    border-radius: 9999px;
-    padding: 5px;
-    .power {
-      background-color: $background;
-      border-radius: 20px;
-      transition: background-color 0.3s ease;
-      .icon {
-        font-size: 20px;
-        margin-left: 5px;
-      }
-      &:hover {
-        background-color:$background-hover-light;
+.rightToolbar {
+  background-color: black;
+  border-radius: 9999px;
+  padding: 5px;
+  .power {
+    background-color: $background;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    .icon {
+      font-size: 20px;
+      margin-left: 5px;
+    }
+    &:hover {
+      background-color:$background-hover-light;
+    }
+  }
+  .battery {
+    margin: 5px;
+    color: white;
+    font-size: 15px;
+  }
+
+  .battery {
+    .icon{
+      margin:2px;
+
+      critical {
+        color:  $color10;
       }
     }
   }
+}

@@ -1,0 +1,25 @@
+# wallust.toml needs to include this
+# and alacritty.toml should import that file under [general]
+[colors.primary]
+background = "#2C282A"
+foreground = "#ECF2E6"
+
+[colors.normal]
+black   = "#524D50"
+red     = "#425F83"
+green   = "#9E5050"
+yellow  = "#7B7257"
+blue    = "#6B9EAA"
+magenta = "#D4B3C2"
+cyan    = "#C8DAB7"
+white   = "#DBE4D2"
+
+[colors.bright]
+black   = "#99A093"
+red     = "#425F83"
+green   = "#9E5050"
+yellow  = "#7B7257"
+blue    = "#6B9EAA"
+magenta = "#D4B3C2"
+cyan    = "#C8DAB7"
+white   = "#DBE4D2"
