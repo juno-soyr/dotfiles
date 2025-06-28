@@ -5,10 +5,10 @@
   (centerbox :orientation "h"
     (workspaces :monitor monitor)
     (centerToolbar)
-    (rightToolbar)
-  )
+    (rightToolbar)))
+(defwidget separator []
+  (label :class "separator" :text "|")
 )
-
 ;; ---------------------- Right Toolbar ------------------------
 
 (defwidget power []
@@ -16,10 +16,31 @@
     (label :text "  " :class "icon")
   )
 )
+(defwidget battery []
+  (box :class "battery"
+    :space-evenly false
+     (label :text "${EWW_BATTERY["BAT0"].capacity}%" :halign "center" :justify "right")
+    (label :class "icon ${ EWW_BATTERY["BAT0"].capacity <= 10 ? 'critical' : '' }"
+           :text "${ EWW_BATTERY["BAT0"].status == 'Charging' ? '󰂄'
+                    : EWW_BATTERY["BAT0"].capacity > 95 ? '󰁹'
+                    : EWW_BATTERY["BAT0"].capacity > 90 ? '󰂂'
+                    : EWW_BATTERY["BAT0"].capacity > 80 ? '󰂁'
+                    : EWW_BATTERY["BAT0"].capacity > 70 ? '󰂀'
+                    : EWW_BATTERY["BAT0"].capacity > 60 ? '󰁿'
+                    : EWW_BATTERY["BAT0"].capacity > 50 ? '󰁾'
+                    : EWW_BATTERY["BAT0"].capacity > 40 ? '󰁽'
+                    : EWW_BATTERY["BAT0"].capacity > 30 ? '󰁼'
+                    : EWW_BATTERY["BAT0"].capacity > 20 ? '󰁻'
+                    : EWW_BATTERY["BAT0"].capacity > 10 ? '󰁺'
+                    : '󰂃' }")
+  )
+)
 
 (defwidget rightToolbar []
-    (box :class "rightToolbar" :halign "end"
-    (systray :spacing 10)
+    (box :class "rightToolbar" :halign "end" :space-evenly false
+    (systray :spacing 10 :class "systray")
+    (separator)
+    (battery)
     (power)
     )
 )
@@ -47,7 +68,7 @@
   )
 )
 ;; ------------------------ Worskapces --------------------------
-(deflisten workspaces :initial '{"HDMI-A-2": [], "HDMI-A-1": []}' "./swayspaces.py")
+(deflisten workspaces :initial '{"DP-5": [], "eDP-1": []}' "./swayspaces.py")
 
 (defwidget workspaces [monitor]
   (box :orientation "h" :class "workspaces" :halign "start"
@@ -59,13 +80,13 @@
 
 
 (defwindow bar-1
-  :monitor "HDMI-A-2"
+  :monitor "eDP-1"
   :windowtype "dock"
   :geometry (geometry :x "0%" :y "1%" :width "99%" :height "5px" :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   :stacking "fg"
   :exclusive "true"
-  (bar :monitor "HDMI-A-2"))
+  (bar :monitor "eDP-1"))
 ; comment out for laptop
 (defwindow bar-2
   :monitor "HDMI-A-1"
@@ -74,4 +95,4 @@
   :reserve (struts :side "top" :distance "4%")
   :stacking "fg"
   :exclusive "true"
-  (workspaces :monitor "HDMI-A-1"))
+  (bar :monitor "HDMI-A-1"))

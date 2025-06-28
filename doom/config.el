@@ -73,7 +73,7 @@
     (org-mode . org-fragtog-mode)
     :custom
     (org-format-latex-options
-     (plist-put org-format-latex-options :scale 1.5)
+     (plist-put org-format-latex-options :scale 2.0)
      (plist-put org-format-latex-options :foreground 'auto)
      (plist-put org-format-latex-options :background 'auto))
     )
@@ -144,5 +144,6 @@
 ;; they are implemented.
 ;; LATEX config
 (setq +latex-viewers '(pdf-tools))
+(setq tidal-boot-script-path "~/Documents/Music/BootTidal.hs")
 ;; Only for debugging
 ;; (setq debug-on-error t)
