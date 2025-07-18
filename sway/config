@@ -38,9 +38,8 @@ input "type:keyboard" {
 }
 output "*" bg /home/haile/Pictures/wallpaper.jpg fill
 
-exec_always nm-applet
-exec_always eww open bar-1 --config ~/.config/eww/bar
-exec_always eww open bar-2 --config ~/.config/eww/bar
+##exec_always nm-applet
+exec_always ~/.local/bin/eww open-many bar-1 bar-2 --config ~/.config/eww/bar	
 
 # variables
 set $mod Mod4
