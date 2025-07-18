@@ -89,10 +89,10 @@
   (bar :monitor "eDP-1"))
 ; comment out for laptop
 (defwindow bar-2
-  :monitor "HDMI-A-1"
+  :monitor "DP-2"
   :windowtype "dock"
   :geometry (geometry :x "0%" :y "1%" :width "99%" :height "5px" :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   :stacking "fg"
   :exclusive "true"
-  (bar :monitor "HDMI-A-1"))
+  (bar :monitor "DP-2"))
