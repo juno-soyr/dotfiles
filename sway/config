@@ -15,7 +15,7 @@ client.focused_inactive  #FFFFFF #2C282A #C8DAB7 #2C282A   #2C282A
 client.unfocused         #2C282A #2C282A #C8DAB7 #2C282A   #2C282A
 client.urgent            #D4B3C2 #D4B3C2 #2C282A #D4B3C2   #D4B3C2
 client.placeholder       #6B9EAA #6B9EAA #2C282A #6B9EAA   #6B9EAA
-default_dim_inactive 0.1
+default_dim_inactive 0.5
 ###### Configurable for SwayFX users ######
 #shadows enable
 #shadow_blur_radius 10 
@@ -23,7 +23,8 @@ blur {
 	enable
 }
 # Enable blur for swaync popups and control center
-for_window [app_id="firefox"] dim_inactive 0
+for_window [app_id="swaync-control-center"] blur enable
+for_window [app_id="swaync-notification"] blur enable
 
 corner_radius 10
 layer_effects "waybar" {
