@@ -1,0 +1,19 @@
+(defwindow launcher
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "50%"       
+                      :height "40%"
+                      :anchor "center"
+  )
+  :stacking "fg"
+  :focusable "ondemand"
+"test")
+
+(defwidget app-list [?input]
+  (box :orientation "horizontal"
+    :halign "center"
+  )
+
+
+)
